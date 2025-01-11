@@ -1,13 +1,643 @@
+/* General Styling */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: lightcoral;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Header section for search box and user info */
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* Push left and right sections apart */
+    align-items: center;
+    /* Vertically align items */
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    /* Background color */
+    border-bottom: 1px solid #ccc;
+    /* Optional: bottom border */
+    box-sizing: border-box;
+    /* Ensure proper sizing */
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    /* Vertically align input and button */
+    flex: 1;
+    /* Take available space */
+}
+
+.search-input {
+    flex: 1;
+    /* Input takes all remaining space */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    /* Ensure vertical alignment */
+    gap: 10px;
+    /* Space between elements */
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+.logout-button {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-info i {
+    font-size: 18px;
+    /* Adjust icon size */
+    vertical-align: middle;
+    /* Align icons with text */
+}
+
+.user-info span {
+    font-size: 14px;
+    /* Adjust text size */
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        /* Wrap header content for smaller screens */
+    }
+
+    .search-form {
+        margin-bottom: 10px;
+        /* Add space below the search form */
+    }
+}
+
+
+/* Main content area to display left and right sections side by side */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Left side - Product Catalog */
+.product-catalog {
+    width: 25%;
+    padding: 20px;
+    background-color: #f6d0d7;
+    border-radius: 10px;
+}
+
+.sort-select,
+.filter-input,
+.filter-button {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.filter-button {
+    background-color: #28a745;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: darkgreen;
+}
+
+/* Right side - Product Listing */
+.product-listing {
+    width: 70%;
+    padding: 20px;
+    background-color: #f6d0d7;
+}
+
+/* Products Grid */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Responsive grid */
+    margin-top: 30px;
+    gap: 20px;
+    /* Reduced the gap between product cards */
+}
+
+/* Product Card */
+.product-card {
+    background-color: bisque;
+    border: 5px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 10px 10px 15px;
+    /* Reduced bottom padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 8px;
+    width: 250px;
+    /* Reduced width */
+    height: 300px;
+    /* Adjusted height */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Image Section */
+.product-image img {
+    width: 100%;
+    height: 200px;
+    /* Reduced height */
+    object-fit: cover;
+}
+
+/* Product Details */
+.product-details {
+    padding: 10px;
+    text-align: center;
+}
+
+.product-details h3 {
+    font-size: 1rem;
+    /* Reduced font size */
+    margin: 5px 0;
+    /* Adjusted spacing */
+}
+
+.product-details p {
+    font-size: 0.9rem;
+    /* Reduced font size */
+    margin: 5px 0;
+    max-height: 40px;
+    /* Limit the height of description */
+    overflow: hidden;
+    /* Hide overflow text */
+    text-overflow: ellipsis;
+    /* Add ellipsis for long text */
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+/* Action Buttons */
+.product-actions {
+    display: flex;
+    justify-content: center;
+    /* Center align the buttons */
+    margin-top: 5px;
+    /* Reduced space above the buttons */
+    margin-bottom: 0px;
+    /* Removed extra space below the buttons */
+}
+
+.product-actions .btn {
+    width: 57%;
+}
+
+/* Buttons - for the product card actions */
+.product-actions button {
+    padding: 6px 10px;
+    /* Reduced padding for smaller size */
+    font-size: 0.9rem;
+    /* Reduced font size */
+    border-radius: 4px;
+    /* Slightly smaller rounded corners */
+    cursor: pointer;
+    width: 80px;
+    /* Adjusted width */
+}
+
+
+.product-actions .btn-info,
+.product-actions .btn-danger,
+.product-actions .btn-success {
+    background-color: #17a2b8;
+    /* Default background */
+    color: white;
+    /* Default text color */
+}
+
+.product-actions .btn-info {
+    background-color: #17a2b8;
+}
+
+.product-actions .btn-danger {
+    background-color: #dc3545;
+}
+
+.product-actions .btn-success {
+    background-color: #28a745;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #f6d0d7;
+    padding: 30px 20px;
+    margin-top: 10px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.footer-logo h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.footer-logo p {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-logo p:hover {
+    color: #007BFF;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-links ul li a:hover {
+    color: #007BFF;
+}
+
+.footer-help ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-help ul li {
+    margin: 10px 0;
+}
+
+.footer-help ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-help ul li a:hover {
+    color: #007BFF;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.footer-social ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-social ul li {
+    margin: 10px 0;
+}
+
+.footer-social ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-social ul li a:hover {
+    color: #007BFF;
+}
+
+.footer-copyright {
+    background-color: indianred;
+    /* Set background color */
+    color: white;
+    /* Text color */
+    padding: 10px 0;
+    /* Adjust padding for better spacing */
+    text-align: center;
+    /* Center the text */
+    width: 100%;
+    /* Ensure it takes the full width of the footer */
+    position: relative;
+    margin-top: 10px;
+}
+
+/* Cart Page */
+.cart-page {
+    background-color: indianred;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f6d0d7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-item-image {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-item-image:hover {
+    transform: translateY(-10px);
+}
+
+
+.cart-item-details {
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-item-details:hover {
+    transform: translateY(-10px);
+}
+
+.cart-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.remove-button-container {
+    margin-top: 10px;
+}
+
+.remove-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cart-buttons .back-button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.cart-buttons .back-button:hover {
+    background-color: #27ae60;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1000px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-catalog,
+    .product-listing {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Adjust header for smaller screens */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .user-info {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-input,
+    .search-button {
+        width: 80%;
+        /* Adjust width for smaller screens */
+        max-width: 90%;
+        /* Limit width on mobile */
+        margin-bottom: 10px;
+    }
+
+    .search-button {
+        width: 100%;
+        /* Make the button take full width on mobile */
+    }
+}
+
+@media (max-width: 500px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-catalog {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-listing {
+        width: 100%;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .footer-links ul li {
+        font-size: 12px;
+    }
+
+    .footer-social ul li {
+        font-size: 12px;
+    }
+
+    .cart-item-image {
+        height: 150px;
+        width: 150px;
+    }
+
+    .cart-item h3 {
+        font-size: 1rem;
+    }
+
+    .cart-item p {
+        font-size: 0.9rem;
+    }
+
+    .cart-buttons .back-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+.cart-badge {
+    background-color: blueviolet;
+    color: antiquewhite;
+    border-radius: 50%;
+    padding: 1px 4px;
+    top: 10px;
+    right: 10px;
+}
+
+/* Header section for search box and user info */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    flex-wrap: wrap;
+    /* Ensures content wraps in smaller screens */
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    /* Ensures search box and button are aligned */
+    margin-bottom: 10px;
+}
+
+.search-input {
+    padding: 8px;
+    margin-right: 5px;
+    /* Reduced gap between input and button */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 70%;
+    /* Adjusted width for better responsiveness */
+    max-width: 250px;
+    /* Ensure it doesn't get too large */
+}
+
+.search-button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 25%;
+    /* Reduced width for the button */
+    max-width: 120px;
+    /* Ensure button size is not too big */
+    margin-right: 10px;
+    /* To add some space between the button and user info */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    /* Pushing user info to the right */
+    justify-content: flex-start;
+}
+
+.user-info .fa-user {
+    margin-right: 10px;
+}
+
+.user-info span {
+    margin-right: 15px;
+    /* Reduced gap between email and user logo */
+    font-weight: bold;
+}
+
+.logout-button {
+    padding: 6px 12px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
