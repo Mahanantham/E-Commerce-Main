@@ -20,7 +20,7 @@ function Homepro1() {
     }, []);
 
     const fetchData = () => {
-        fetch("http://localhost:3006/E.Commerce", {
+        fetch("https://e-commerce-t5o1.onrender.com/E.Commerce", {
             method: "GET",
         })
             .then((res) => res.json())
@@ -35,7 +35,7 @@ function Homepro1() {
     //add to cart
 
     const addToCart = (id) => {
-        fetch(`http://localhost:3006/E.Commerce/${id}`, {
+        fetch(`https://e-commerce-t5o1.onrender.com/E.Commerce/${id}`, {
             method: "GET",
         })
             .then((res) => res.json())
@@ -68,7 +68,7 @@ function Homepro1() {
 
     // Delete Form
     const deleteForm = (id) => {
-        fetch(`http://localhost:3006/E.Commerce/${id}`, {
+        fetch(`https://e-commerce-t5o1.onrender.com/E.Commerce/${id}`, {
             method: "DELETE",
         })
             .then(() => {
@@ -82,7 +82,7 @@ function Homepro1() {
     const filterData = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.get(`http://localhost:3006/E.Commerce/?q=${filter}`);
+            const res = await axios.get(`https://e-commerce-t5o1.onrender.com/E.Commerce/?q=${filter}`);
             setData(res.data);
         } catch {
             alert("Error filtering data");
@@ -93,7 +93,7 @@ function Homepro1() {
         const value = e.target.value;
         setSort(value);
         try {
-            const res = await axios.get(`http://localhost:3006/E.Commerce/?_sort=${value}&_order=asc`);
+            const res = await axios.get(`https://e-commerce-t5o1.onrender.com/E.Commerce/?_sort=${value}&_order=asc`);
             setData(res.data);
         } catch {
             alert("Error sorting data");
