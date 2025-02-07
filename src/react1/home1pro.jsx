@@ -125,7 +125,7 @@ function Homepro1() {
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                         placeholder="Search products"
-                        className="search-input"/>
+                        className="search-input" />
                     <button type="submit" className="search-button">
                         Search
                     </button>
@@ -146,13 +146,15 @@ function Homepro1() {
             </div>
 
 
+
+
             {/* Main Section */}
             <div className="main-content">
                 {/* Left Side - Product Catalog and Filters */}
                 <div className="product-catalog">
-                    <h2 style={{ color: "darkmagenta" }}><u>Product Catalog</u></h2>
+                    <h2 style={{ "textAlign": "center" }}>PRODUCT CATALOG</h2>
                     <select onChange={sortData} value={sort} className="sort-select">
-                        <option value="">--- Select ---</option>
+                        <option value="">--Select--</option>
                         <option value="price">Price</option>
                         <option value="rating">Rating</option>
                     </select>
@@ -164,22 +166,28 @@ function Homepro1() {
                             value={filter}
                             onChange={(e) => setFilter(e.target.value)}
                             placeholder="Filter by product name"
-                            className="filter-input"/>
+                            className="filter-input" />
                         <button type="submit" className="filter-button">
                             Filter
                         </button>
                     </form>
+                    <div className="headerimage">
+                        <img src="https://static.vecteezy.com/system/resources/previews/000/175/898/original/vector-super-offer-advertising-banner-template-with-colorful-waves.jpg" alt=" image not available" />
+                    </div>
+                    <div className="headerimage">
+                        <img src="https://thumbs.dreamstime.com/z/discount-banners-9262203.jpg" alt=" image not available" />
+                    </div>
                 </div>
 
                 {/* Right Side - Product Listing */}
                 <div className="product-listing">
-                    <h2 style={{ color: "darkmagenta" }}><marquee><strong>Products In Our Website</strong></marquee></h2>
+                    <h2 ><marquee><strong>BIG BASKET</strong></marquee></h2>
 
                     <div className="products-container">
                         {currentData.map((item) => (
                             <div className="product-card" key={item.id}>
                                 <div className="product-image">
-                                    <img style={{ height: "150px", width: "200px" }} src={item.img} alt={item.productname} />
+                                    <img src={item.img} alt={item.productname} />
                                 </div>
                                 <div className="product-details">
                                     <h3><strong>{item.productname}</strong></h3>
@@ -203,7 +211,7 @@ function Homepro1() {
                             total={data.length}
                             records={records}
                             update={setPage}
-                            currentPage={page}/>
+                            currentPage={page} />
                     </div>
                 </div>
             </div>
@@ -213,12 +221,12 @@ function Homepro1() {
                 <div className="footer-container">
                     {/* Logo & Slogan */}
                     <div className="footer-logo">
-                        <h1 style={{ color: "darkmagenta" }}><u>Logo</u></h1>
+                        <h1 style={{ color: "darkgray" }}>Logo</h1>
                         <p>Subline</p>
                     </div>
                     <div className="footer-links">
                         <ul>
-                            <h3 style={{ color: "darkmagenta" }}><u>About Us</u></h3>
+                            <h3 style={{ color: "darkgray" }}>About Us</h3>
                             <li><Link to="/expertise">Our Expertise</Link></li>
                             <li><Link to="/testimonials">Testimonials</Link></li>
                             <li><Link to="/shop">Shop</Link></li>
@@ -226,7 +234,7 @@ function Homepro1() {
                     </div>
                     <div className="footer-help">
                         <ul>
-                            <h3 style={{ color: "darkmagenta" }}><u>Legal and Help</u></h3>
+                            <h3 style={{ color: "darkgray" }}>Legal and Help</h3>
                             <li><Link to="/faqs">FAQ's</Link></li>
                             <li><Link to="/terms">Terms of Use</Link></li>
                             <li><Link to="/privacy">Privacy Policy</Link></li>
@@ -235,7 +243,7 @@ function Homepro1() {
 
                     {/* Contact Info */}
                     <div className="footer-contact">
-                        <h3 style={{ color: "darkmagenta" }}><u>Contact Us</u></h3>
+                        <h3 style={{ color: "darkgray" }}>Contact Us</h3>
                         <p><i class="fa-solid fa-location-dot" style={{ marginRight: "11px" }}></i>Address</p>
                         <p><i class="fa-solid fa-phone" style={{ marginRight: "8px" }}></i>Phone</p>
                         <p><i class="fa-solid fa-m" style={{ marginRight: "10px" }}></i>Email</p>
@@ -243,7 +251,7 @@ function Homepro1() {
 
                     {/* Social Links */}
                     <div className="footer-social">
-                        <h3 style={{ color: "darkmagenta" }}><u>Follow Us</u></h3>
+                        <h3 style={{ color: "darkgray" }}>Follow Us</h3>
                         <div id="sociallogo">
                             <i class="fa-brands fa-facebook" style={{ marginRight: "8px" }}></i>
                             <i class="fa-brands fa-instagram" style={{ marginRight: "8px" }}></i>
