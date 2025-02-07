@@ -134,11 +134,11 @@ function Homepro1() {
                 {/* User Info on the Right */}
                 <div className="user-info">
                     <div className="cart-icon" onClick={navigateToCart} style={{ cursor: "pointer" }}>
-                        <i className="fa-solid fa-cart-shopping" style={{ marginRight: "5px", color: "darkviolet" }}></i>
+                        <i className="fa-solid fa-cart-shopping" style={{ marginRight: "5px", color: "#e74c3c" }}></i>
                         {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
                     </div>
                     <i className="fa-solid fa-user-large" style={{ marginRight: "10px" }}></i>
-                    <span>{localStorage.getItem("userEmail")}</span>
+                    <span>{localStorage.getItem("userEmail")||"Guest"}</span>
                     <button onClick={logout} className="logout-button">
                         Logout
                     </button>
@@ -200,7 +200,7 @@ function Homepro1() {
                                         <button onClick={() => deleteForm(item.id)} className="btn btn-danger">
                                             Delete
                                         </button> */}
-                                        <button onClick={() => addToCart(item.id)} className="btn btn-success" ><i class="fa-solid fa-cart-shopping" style={{ marginRight: "5px" }}></i>
+                                        <button onClick={() => addToCart(item.id)} className="btn btn-success" ><i class="fa-solid fa-cart-shopping" style={{ marginRight: "5px",width:"15px" }}></i>
                                             Add to cart
                                         </button>
                                     </div>
